@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/motdotla/signature-signing/master/signature-signing.gif" alt="signature-signing" align="right" width="280" />
 
-JavaScript library that renders the signature elements on top of a rendered [signature-document](https://github.com/motdotla/signature-document).
+JavaScript library that renders the signature elements on top of a rendered [signature-document](https://github.com/motdotla/signature-document). It uses a [signature-signing](https://github.com/motdotla/signature-signing#signature-signing-blueprint) blueprint to render the signature elements.
 
 It works in tandem with the [signature-document](https://github.com/motdotla/signature-document) library to turn the signature-document into a signable document. It's dependent on signature-document and hooks into it via an evented system.
 
