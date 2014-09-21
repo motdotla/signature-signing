@@ -8,7 +8,7 @@
 </head>
 <body>
   <script src='https://rawgit.com/motdotla/signature-document/master/build/signature-document.min.js' data-signature-document-url="http://signature-api.herokuapp.com/api/v0/documents/8abddacd-2bb0-498c-b4f6-e3259d7edb35.json"></script>
-  <script src='/build/signature-fabric.js'></script>
+  <script src='/build/signature-fabric.js' data-signature-signing-url="http://localhost:3000/3.json"></script>
   <script>
     signature_document.init();
     signature_document.bind('rendered', function(values) {

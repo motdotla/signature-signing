@@ -1,4 +1,4 @@
-/*! signature-fabric.js - 0.0.1 - 2014-09-19 - scottmotte */
+/*! signature-fabric.js - 0.0.1 - 2014-09-20 - scottmotte */
 var MicroEvent  = function(){};
 MicroEvent.prototype  = {
   bind  : function(event, fct){
