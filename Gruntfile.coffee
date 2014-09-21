@@ -6,8 +6,8 @@ module.exports = (grunt) ->
     src             = grunt.file.read("src/css/application.css")
     minified_css    = sqwish.minify(src)
 
-    combined = "(function(SignatureFabric){" +
-      "SignatureFabric.prototype._drawCss = function() {" +
+    combined = "(function(SignatureSigning){" +
+      "SignatureSigning.prototype._drawCss = function() {" +
         "this.css = '" + minified_css + "';" +
         "var style = document.createElement('style');" +
         "style.type = 'text/css';" +
@@ -18,9 +18,9 @@ module.exports = (grunt) ->
         "}" +
         "return document.body.appendChild(style);" +
       "};" +
-    "}(SignatureFabric));"
+    "}(SignatureSigning));"
 
-    grunt.file.write("src/signature-fabric/css.js", combined)
+    grunt.file.write("src/signature-signing/css.js", combined)
 
   grunt.initConfig
     pkg: grunt.file.readJSON("package.json")
@@ -29,18 +29,18 @@ module.exports = (grunt) ->
       options:
         banner: "<%= banner %>"
       en:
-        src: "build/signature-fabric.js"
-        dest: "build/signature-fabric.min.js"
+        src: "build/signature-signing.js"
+        dest: "build/signature-signing.min.js"
     concat:
       options:
         banner: "<%= banner %>"
         separator: '\n\n'
         stripBanners : true
       en:
-        src: ["src/libs/microevent.js", "src/libs/fabric.js", "src/extensions/*.js", "src/signature-fabric.js", "src/signature-fabric/*.js"]
-        dest: "build/signature-fabric.js"
+        src: ["src/libs/microevent.js", "src/signature-signing.js", "src/signature-signing/*.js"]
+        dest: "build/signature-signing.js"
     jshint:
-      all: ['src/signature-fabric.js', 'src/signature-fabric/*.js']
+      all: ['src/signature-signing.js', 'src/signature-signing/*.js']
     connect:
       server:
         options:

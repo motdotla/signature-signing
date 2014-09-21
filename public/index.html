@@ -7,15 +7,15 @@
   </style>
 </head>
 <body>
-  <script src='https://rawgit.com/motdotla/signature-document/master/build/signature-document.min.js' data-signature-document-url="http://signature-api.herokuapp.com/api/v0/documents/8abddacd-2bb0-498c-b4f6-e3259d7edb35.json"></script>
-  <script src='/build/signature-fabric.js' data-signature-signing-url="http://localhost:3000/3.json"></script>
+  <script src='https://rawgit.com/motdotla/signature-document/master/build/signature-document.min.js' data-signature-document-url="http://signature-api.herokuapp.com/api/v0/documents/80b0b7cc-005b-4c83-8ac4-6fed1daaf23e.json"></script>
+  <script src='/build/signature-signing.js' data-signature-signing-url="http://localhost:3000/examples/3.json"></script>
   <script>
     signature_document.init();
     signature_document.bind('rendered', function(values) {
-      signature_fabric.pages = values.elements.pages;
-      signature_fabric.style_width = values.style_width;
-      signature_fabric.style_height = values.style_height;
-      signature_fabric.init();
+      console.log(values);
+      signature_signing.fabrics = values.fabrics;
+      signature_signing.multiplier = values.multiplier;
+      signature_signing.init();
     });
   </script>
 </body>
