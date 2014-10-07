@@ -9,9 +9,11 @@ It works in tandem with the [signature-document](https://github.com/motdotla/sig
 ```html
 <script src='/path/to/signature-document.js' data-signature-document-url="http://example.com/path/to/signature/document.json"></script>
 <script src='/path/to/signature-signing.js' data-signature-signing-url="http://example.com/path/to/signature/signing.json"></script>
+<script src='/path/to/jafja.js'></script>
 <script>
+  signature_document.jafja = jafja;
   signature_document.init();
-  signature_document.bind('rendered', function(values) {
+  signature_document.jafja.bind('rendered', function(values) {
     console.log('rendered', values);
   });
 </script>
@@ -24,9 +26,11 @@ Place the script tag in the body of an html page. Bind to the signature-document
 ```html
 <script src='/path/to/signature-document.js' data-signature-document-url="http://example.com/path/to/signature/document.json"></script>
 <script src='/path/to/signature-signing.js' data-signature-signing-url="http://example.com/path/to/signature/signing.json"></script>
+<script src='/path/to/jafja.js'></script>
 <script>
+  signature_document.jafja = jafja;
   signature_document.init();
-  signature_document.bind('rendered', function(values) {
+  signature_document.jafja.bind('rendered', function(values) {
     console.log('rendered', values);
   });
 </script>

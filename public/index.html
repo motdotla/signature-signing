@@ -9,9 +9,11 @@
 <body>
   <script src='https://rawgit.com/motdotla/signature-document/master/build/signature-document.min.js' data-signature-document-url="http://signature-api.herokuapp.com/api/v0/documents/80b0b7cc-005b-4c83-8ac4-6fed1daaf23e.json"></script>
   <script src='/build/signature-signing.js' data-signature-signing-url="http://localhost:3000/examples/3.json"></script>
+  <script src='/jafja.js'></script>
   <script>
+    signature_document.jafja = jafja;
     signature_document.init();
-    signature_document.bind('rendered', function(values) {
+    signature_document.jafja.bind('rendered', function(values) {
       console.log(values);
       signature_signing.fabrics = values.fabrics;
       signature_signing.multiplier = values.multiplier;
