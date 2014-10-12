@@ -48,12 +48,12 @@
     if (this.json.signings[0].signature_elements) {
       for(var i = 0; i < this.json.signings[0].signature_elements.length; i++) {
         var signature_element_json = this.json.signings[0].signature_elements[i];
-        this._drawSignatureElement(signature_element_json);
+        this.drawSignatureElement(signature_element_json);
       }
     }
   };
 
-  SignatureSigning.prototype._drawSignatureElement = function(signature_element, callback) {
+  SignatureSigning.prototype.drawSignatureElement = function(signature_element, callback) {
     // payload: {x: 1, y: 1, page_number: 1, id: 1234, url: "somepng"}
     var self = this;
     var imgObj = new Image();

@@ -53,6 +53,13 @@ var text_element_json = { x: 20, y: 20, content: "Some Text", page_number: 1, id
 signature_signing.drawTextElement(text_element_json);
 ```
 
+### drawSignatureElement(signature_element_json)
+
+```javascript
+var signature_element_json = { x: 20, y: 20, url: "dataurl", page_number: 1, id: "some-unique-id"}
+signature_signing.drawSignatureElement(signature_element_json);
+```
+
 ### jafja
 
 ```javascript
