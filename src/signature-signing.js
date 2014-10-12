@@ -40,7 +40,6 @@
       self._drawSignatureElements();
       self._drawTextElements();
 
-      //self.FireEvent("rendered", {elements: {pages: self.pages}, style_width: self.style_width, style_height: self.style_height});
       return true;
     });
   };

@@ -13,11 +13,14 @@
   <script>
     signature_document.jafja = jafja;
     signature_document.init();
-    signature_document.jafja.bind('rendered', function(values) {
+    jafja.bind('signature_document.rendered', function(values) {
       console.log(values);
       signature_signing.fabrics = values.fabrics;
       signature_signing.multiplier = values.multiplier;
       signature_signing.init();
+    });
+    jafja.bind('signature_document.fabric.clicked', function(values) {
+      console.log(values);
     });
   </script>
 </body>
