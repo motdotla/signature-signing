@@ -87,12 +87,12 @@
     if (this.json.signings[0].text_elements) {
       for(var i = 0; i < this.json.signings[0].text_elements.length; i++) {
         var text_element_json = this.json.signings[0].text_elements[i];
-        this._drawTextElement(text_element_json);
+        this.drawTextElement(text_element_json);
       }
     }
   };
 
-  SignatureSigning.prototype._drawTextElement = function(text_element, callback) {
+  SignatureSigning.prototype.drawTextElement = function(text_element, callback) {
     // payload: {x: 1, y: 1, page_number: 1, id: 1234, content: "Some Text"}
     var self = this;
     var text = new fabric.Text(text_element.content, { 

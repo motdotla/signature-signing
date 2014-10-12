@@ -40,6 +40,27 @@ Place the script tag in the body of an html page. Bind to the signature-document
 </script>
 ```
 
+### init()
+
+```javascript
+signature_signing.init();
+```
+
+### drawTextElement(text_element_json)
+
+```javascript
+var text_element_json = { x: 20, y: 20, content: "Some Text", page_number: 1, id: "some-unique-id"}
+signature_signing.drawTextElement(text_element_json);
+```
+
+### jafja
+
+```javascript
+signature_signing.jafja = jafja
+```
+
+Set jafja to a [jafja](http://github.com/motdotla/jafja) object.
+
 ## Signature Signing Blueprint
 
 A signature-signing should be built in the following format. This is a working blueprint and subject to change.
