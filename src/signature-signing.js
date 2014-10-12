@@ -152,5 +152,4 @@
 
 }(this));
 
-MicroEvent.mixin(SignatureSigning);
 var signature_signing = new SignatureSigning();

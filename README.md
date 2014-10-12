@@ -13,7 +13,7 @@ It works in tandem with the [signature-document](https://github.com/motdotla/sig
 <script>
   signature_document.jafja = jafja;
   signature_document.init();
-  signature_document.jafja.bind('rendered', function(values) {
+  jafja.bind('signature_document.rendered', function(values) {
     signature_signing.fabrics = values.fabrics;
     signature_signing.multiplier = values.fabrics;
     signature_signing.init();
@@ -32,7 +32,7 @@ Place the script tag in the body of an html page. Bind to the signature-document
 <script>
   signature_document.jafja = jafja;
   signature_document.init();
-  signature_document.jafja.bind('rendered', function(values) {
+  jafja.bind('signature_document.rendered', function(values) {
     signature_signing.fabrics = values.fabrics;
     signature_signing.multiplier = values.fabrics;
     signature_signing.init();
