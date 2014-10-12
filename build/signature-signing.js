@@ -1,4 +1,4 @@
-/*! signature-signing.js - 0.0.1 - 2014-10-07 - scottmotte */
+/*! signature-signing.js - 0.0.1 - 2014-10-12 - scottmotte */
 var MicroEvent  = function(){};
 MicroEvent.prototype  = {
   bind  : function(event, fct){
@@ -55,6 +55,8 @@ if( typeof module !== "undefined" && ('exports' in module)){
     this.signature_signing_url      = this.script.getAttribute("data-signature-signing-url");
     this.signature_element_width    = 232.0;
     this.signature_element_height   = 104.0;
+    this.font_size                  = 20;
+    this.font_family                = "Helvetica";
 
     return this;
   };
@@ -82,6 +84,7 @@ if( typeof module !== "undefined" && ('exports' in module)){
       self.json                     = resp;
 
       self._drawSignatureElements();
+      self._drawTextElements();
 
       //self.FireEvent("rendered", {elements: {pages: self.pages}, style_width: self.style_width, style_height: self.style_height});
       return true;
@@ -96,7 +99,6 @@ if( typeof module !== "undefined" && ('exports' in module)){
   };
 
   SignatureSigning.prototype._drawSignatureElement = function(signature_element, callback) {
-    // i need a way to get the fab out of the signature_element.
     // payload: {x: 1, y: 1, page_number: 1, id: 1234, url: "somepng"}
     var self = this;
     var imgObj = new Image();
@@ -125,13 +127,48 @@ if( typeof module !== "undefined" && ('exports' in module)){
     };
   };
 
+  SignatureSigning.prototype._drawTextElements = function() {
+    for(var i = 0; i < this.json.signings[0].text_elements.length; i++) {
+      var text_element_json = this.json.signings[0].text_elements[i];
+      this._drawTextElement(text_element_json);
+    }
+  };
+
+  SignatureSigning.prototype._drawTextElement = function(text_element, callback) {
+    // payload: {x: 1, y: 1, page_number: 1, id: 1234, content: "Some Text"}
+    var self = this;
+    var text = new fabric.Text(text_element.content, { 
+      honest_left:  parseFloat(text_element.x),
+      honest_top:   parseFloat(text_element.y),
+      hasControls:  false,
+      originX:      "left",
+      text_element_id: text_element.id,
+      fontFamily:   self.font_family
+    });
+
+    self._resizeAndPositionFabricObject(self, text);
+    
+    var fab_index = text_element.page_number-1;
+    var fab       = self.fabrics[fab_index];
+    fab.add(text).renderAll();
+
+    if (typeof callback === 'function') {
+      return callback(text);
+    }
+  };
+
   SignatureSigning.prototype._resizeAndPositionFabricObject = function(self, object) {
     var new_left      = object.honest_left * self.multiplier;
     var new_top       = object.honest_top * self.multiplier;
     var new_height    = object.honest_height * self.multiplier;
     var new_width     = object.honest_width * self.multiplier;
+    var new_font_size = self.font_size * self.multiplier;
 
-    object.set({ left: new_left, top: new_top, height: new_height, width: new_width });
+    if (object.text) {
+      object.set({ left: new_left, top: new_top, fontSize: new_font_size});
+    } else {
+      object.set({ left: new_left, top: new_top, height: new_height, width: new_width });
+    }
     object.setCoords(); // fixes the select object coordinates to match
   };
 
