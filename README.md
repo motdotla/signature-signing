@@ -14,7 +14,9 @@ It works in tandem with the [signature-document](https://github.com/motdotla/sig
   signature_document.jafja = jafja;
   signature_document.init();
   signature_document.jafja.bind('rendered', function(values) {
-    console.log('rendered', values);
+    signature_signing.fabrics = values.fabrics;
+    signature_signing.multiplier = values.fabrics;
+    signature_signing.init();
   });
 </script>
 ```
@@ -31,7 +33,9 @@ Place the script tag in the body of an html page. Bind to the signature-document
   signature_document.jafja = jafja;
   signature_document.init();
   signature_document.jafja.bind('rendered', function(values) {
-    console.log('rendered', values);
+    signature_signing.fabrics = values.fabrics;
+    signature_signing.multiplier = values.fabrics;
+    signature_signing.init();
   });
 </script>
 ```
@@ -40,7 +44,7 @@ Place the script tag in the body of an html page. Bind to the signature-document
 
 A signature-signing should be built in the following format. This is a working blueprint and subject to change.
 
-The format borrows from [json:api](http://jsonapi.org/). It should have a signings array, but with only one signing in the array. Nested inside shall be a signature_elements array. Each signature_element should have a page_number as an integer, a url as an image, an x position, and a y position.
+The format borrows from [json:api](http://jsonapi.org/). It should have a signings array, but with only one signing in the array. Nested inside shall be a signature_elements array or a text_elements array. Each signature_element should have a page_number as an integer, a url as an image, an x position, and a y position. Each text_element should have a page_number as an integer, a content as text, an x position, and a y position.
 
 ```json
 {
@@ -65,6 +69,4 @@ The format borrows from [json:api](http://jsonapi.org/). It should have a signin
     }
   ]
 }
-```
-
 ```
