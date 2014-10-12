@@ -45,9 +45,11 @@
   };
 
   SignatureSigning.prototype._drawSignatureElements = function() {
-    for(var i = 0; i < this.json.signings[0].signature_elements.length; i++) {
-      var signature_element_json = this.json.signings[0].signature_elements[i];
-      this._drawSignatureElement(signature_element_json);
+    if (this.json.signings[0].signature_elements) {
+      for(var i = 0; i < this.json.signings[0].signature_elements.length; i++) {
+        var signature_element_json = this.json.signings[0].signature_elements[i];
+        this._drawSignatureElement(signature_element_json);
+      }
     }
   };
 
@@ -81,9 +83,11 @@
   };
 
   SignatureSigning.prototype._drawTextElements = function() {
-    for(var i = 0; i < this.json.signings[0].text_elements.length; i++) {
-      var text_element_json = this.json.signings[0].text_elements[i];
-      this._drawTextElement(text_element_json);
+    if (this.json.signings[0].text_elements) {
+      for(var i = 0; i < this.json.signings[0].text_elements.length; i++) {
+        var text_element_json = this.json.signings[0].text_elements[i];
+        this._drawTextElement(text_element_json);
+      }
     }
   };
 
