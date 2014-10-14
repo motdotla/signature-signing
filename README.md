@@ -14,6 +14,7 @@ It works in tandem with the [signature-document](https://github.com/motdotla/sig
   signature_document.jafja = jafja;
   signature_document.init();
   jafja.bind('signature_document.rendered', function(values) {
+    signature_signing.jafja = jafja;
     signature_signing.fabrics = values.fabrics;
     signature_signing.multiplier = values.fabrics;
     signature_signing.init();
@@ -33,6 +34,7 @@ Place the script tag in the body of an html page. Bind to the signature-document
   signature_document.jafja = jafja;
   signature_document.init();
   jafja.bind('signature_document.rendered', function(values) {
+    signature_signing.jafja = jafja;
     signature_signing.fabrics = values.fabrics;
     signature_signing.multiplier = values.fabrics;
     signature_signing.init();
@@ -60,6 +62,12 @@ var signature_element_json = { x: 20, y: 20, url: "dataurl", page_number: 1, id:
 signature_signing.drawSignatureElement(signature_element_json);
 ```
 
+### removeSelectedObject()
+
+```javascript
+signature_signing.removeSelectedObject();
+```
+
 ### jafja
 
 ```javascript
@@ -67,6 +75,24 @@ signature_signing.jafja = jafja
 ```
 
 Set jafja to a [jafja](http://github.com/motdotla/jafja) object.
+
+This exposes a series of events you can bind to.
+
+### Events
+
+#### signature_signing.object.removed
+
+```javascript
+jafja.bind('signature_signing.object.removed', function(values) {
+  console.log('signature_signing.object.removed', values);
+});
+```
+
+The result is an empty object.
+
+```javascript
+{}
+```
 
 ## Signature Signing Blueprint
 

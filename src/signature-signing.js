@@ -12,6 +12,8 @@
     this.font_size                  = 20;
     this.font_family                = "Helvetica";
 
+    this.jafja = undefined;
+
     return this;
   };
 
@@ -111,6 +113,19 @@
 
     if (typeof callback === 'function') {
       return callback(text);
+    }
+  };
+
+  SignatureSigning.prototype.removeSelectedObject = function(e) {
+    if (e) { e.preventDefault(); }  
+    var _this = this;
+
+    for (var i=0; i < _this.fabrics.length; i++) {
+      var active_object = _this.fabrics[i]._activeObject;
+      if (active_object) {
+        _this.fabrics[i].remove(active_object);
+        _this.jafja.trigger("signature_signing.object.removed", {});
+      }
     }
   };
 

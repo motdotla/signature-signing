@@ -15,12 +15,19 @@
     signature_document.init();
     jafja.bind('signature_document.rendered', function(values) {
       console.log(values);
+      signature_signing.jafja = jafja;
       signature_signing.fabrics = values.fabrics;
       signature_signing.multiplier = values.multiplier;
       signature_signing.init();
     });
     jafja.bind('signature_document.fabric.clicked', function(values) {
-      console.log(values);
+      console.log('signature_document.fabric.clicked', values);
+    });
+    jafja.bind('signature_document.object.selected', function(values) {
+      console.log('signature_document.object.selected', values);
+    });
+    jafja.bind('signature_signing.object.removed', function(values) {
+      console.log('signature_signing.object.removed', values);
     });
   </script>
 </body>
