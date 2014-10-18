@@ -42,6 +42,9 @@
       self._drawSignatureElements();
       self._drawTextElements();
 
+      var signing = self.json.signings[0];
+      self.jafja.trigger("signature_signing.rendered", {id: signing.id, status: signing.status});
+
       return true;
     });
   };

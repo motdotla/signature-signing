@@ -80,6 +80,24 @@ This exposes a series of events you can bind to.
 
 ### Events
 
+#### signature_signing.rendered
+
+jafja.bind('signature_signing.rendered', function(values) {
+  console.log('signature_signing.rendered', values);
+});
+
+The result is an object of values.
+
+* `id` - The id of the signing session.
+* `status` - The status of the signing session - signed or signing.
+
+```javascript
+{
+  id: 'unique-id',
+  status: 'signing'
+}
+```
+
 #### signature_signing.object.removed
 
 ```javascript
@@ -87,7 +105,6 @@ jafja.bind('signature_signing.object.removed', function(values) {
   console.log('signature_signing.object.removed', values);
 });
 ```
-
 
 The result is an object of values.
 

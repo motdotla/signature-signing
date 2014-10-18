@@ -20,6 +20,9 @@
       signature_signing.multiplier = values.multiplier;
       signature_signing.init();
     });
+    jafja.bind('signature_signing.rendered', function(values) {
+      console.log('signature_signing.rendered', values);
+    });
     jafja.bind('signature_document.fabric.clicked', function(values) {
       console.log('signature_document.fabric.clicked', values);
     });

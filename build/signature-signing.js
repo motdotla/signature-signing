@@ -1,4 +1,4 @@
-/*! signature-signing.js - 0.0.1 - 2014-10-17 - scottmotte */
+/*! signature-signing.js - 0.0.1 - 2014-10-18 - scottmotte */
 (function(exports){
 
   var SignatureSigning = function() {
@@ -42,6 +42,9 @@
 
       self._drawSignatureElements();
       self._drawTextElements();
+
+      var signing = self.json.signings[0];
+      self.jafja.trigger("signature_signing.rendered", {id: signing.id, status: signing.status});
 
       return true;
     });
