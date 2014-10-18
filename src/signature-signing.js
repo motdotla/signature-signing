@@ -124,7 +124,6 @@
       var active_object = _this.fabrics[i]._activeObject;
       if (active_object) {
         _this.fabrics[i].remove(active_object);
-        console.log(active_object);
 
         var id;
         var type;
