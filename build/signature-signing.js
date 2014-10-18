@@ -1,4 +1,4 @@
-/*! signature-signing.js - 0.0.1 - 2014-10-14 - scottmotte */
+/*! signature-signing.js - 0.0.1 - 2014-10-17 - scottmotte */
 (function(exports){
 
   var SignatureSigning = function() {
@@ -125,7 +125,19 @@
       var active_object = _this.fabrics[i]._activeObject;
       if (active_object) {
         _this.fabrics[i].remove(active_object);
-        _this.jafja.trigger("signature_signing.object.removed", {});
+        console.log(active_object);
+
+        var id;
+        var type;
+        if (active_object.signature_element_id) {
+          id = active_object.signature_element_id;
+          type = "signature_element";
+        }
+        if (active_object.text_element_id) {
+          id = active_object.text_element_id;
+          type = "text_element";
+        }
+        _this.jafja.trigger("signature_signing.object.removed", {id: id, type: type});
       }
     }
   };

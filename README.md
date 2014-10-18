@@ -88,10 +88,17 @@ jafja.bind('signature_signing.object.removed', function(values) {
 });
 ```
 
-The result is an empty object.
+
+The result is an object of values.
+
+* `id` - The id of the object (element) modified.
+* `type` - Either 'signature_element' or 'text_element'.
 
 ```javascript
-{}
+{
+  id: 'unique-id',
+  type: 'signature_element'
+}
 ```
 
 ## Signature Signing Blueprint
