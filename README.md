@@ -1,6 +1,6 @@
 # signature-signing
 
-<img src="https://raw.githubusercontent.com/motdotla/signature-signing/master/signature-signing.gif" alt="signature-signing" align="right" width="280" />
+<img src="https://raw.githubusercontent.com/motdotla/signature-signing/master/signature-fabric.gif" alt="signature-signing" align="right" width="280" />
 
 JavaScript library that renders the signature elements on top of a rendered [signature-document](https://github.com/motdotla/signature-document). It uses a [signature-signing](https://github.com/motdotla/signature-signing#signature-signing-blueprint) blueprint to render the signature elements.
 
